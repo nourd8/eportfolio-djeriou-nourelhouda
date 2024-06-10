@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Portfolio de Nourelhouda Djeriou</title>
+    <!-- Lien vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Votre fichier CSS personnalisé -->
+    <link href="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/tst.css" rel="stylesheet">
+
+    <style>
+	
+        #contact {
+            text-align: center;
+			padding: 40px ; 
+        }
+        .contact-item {
+            text-align: center;
+        }
+        .contact-item img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+        .contact-item img:hover {
+            transform: scale(1.1);
+        }
+        .contact-item h5 {
+            margin-bottom: 5px;
+            font-size: 16px;;
+        }
+        .contact-item a {
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .contact-item a:hover {
+            color: #824C5B;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 1030;
+        }
+
+		#form {
+			max-width: 820px; /* Ajustez cette valeur pour réduire la largeur de la section formation */
+			margin: 0 auto; /* Centre la section */
+			padding: 20px 80px; /* Ajouter du padding pour s'assurer que le contenu ne touche pas les bords */
+		}
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px; /* Largeur de la barre verticale */
+            height: 100%;
+            background-color: #f8f9fa; /* Couleur de fond */
+            border-right: 1px solid #e9ecef; /* Bordure droite */
+            z-index: 1030;
+            display: none; /* Cachée par défaut */
+        }
+
+        .sidebar-menu {
+            padding-top: 60px; /* Ajout de l'espacement supérieur */
+            list-style: none;
+            padding-left: 10px;
+            margin: 0;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-menu li a {
+            display: block;
+            padding: 10px;
+            text-align: left; /* Alignement du texte à gauche */
+            color: #000;
+            text-decoration: none;
+        }
+
+        .sidebar-menu li a:hover {
+            background-color: #e9ecef;
+        }
+
+        .sidebar-menu .sub-menu {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .sidebar-menu .sub-menu li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-menu .sub-menu li a {
+            display: block;
+            padding: 5px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .sidebar-menu .sub-menu li a:hover {
+            background-color: #e9ecef;
+        }
+
+        .menu-toggle-btn {
+            position: fixed;
+            top: 675px; /* Positionnement ajusté du bouton */
+            left: 22px;
+            z-index: 1040;
+            background-color: #ffffff; /* Couleur de fond claire */
+            color: #007bff; /* Couleur du texte */
+            border: 1px solid #007bff; /* Bordure bleu */
+            padding: 8px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+		
+        .carousel-item img, .carousel-item video {
+            max-height: 400px;
+            object-fit: cover;
+		
+        }
+		
+        .navbar-brand {
+            text-decoration: none;
+			color: #AD757E !important;
+        }
+        /* Ajouter une marge droite au logo */
+        .navbar-brand img {
+            margin-right: 10px;
+        }
+		
+		.navbar-brand {
+            pointer-events: none;
+        }
+		p:not(footer p) {
+			margin-bottom: 10px;
+			font-size: 0.85rem; /* Reduce the font size for better readability */
+			line-height: 1.5; /* Improve readability */
+			text-align: justify; /* Justify text for better readability */
+		}
+		
+		li {
+			font-size: 0.95rem; /* Reduce the font size for better readability */
+			line-height: 1.5; /* Improve readability */
+			text-align: justify; /* Justify text for better readability */
+		}
+	    footer {
+        background-color: #00171F;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        }
+		
+		.project-card {
+		margin-bottom: 30px;
+		}
+		.carousel-control-prev-icon,
+		.carousel-control-next-icon {
+		background-color: black;
+		border-radius: 50%;
+		}
+
+		@media (max-width: 1200px) {
+		#form {
+			max-width: 80%; /* Make the section wider on medium screens */
+		}
+		}
+
+		@media (max-width: 768px) {
+			#form {
+				max-width: 75%; /* Make the section almost full width on small screens */
+			}
+		}
+
+
+
+		h2 {
+			color: #096B72;
+		}
+
+		.timeline-container {
+			display: flex;
+			flex-direction: row;
+			overflow-x: auto;
+			padding: 20px 0;
+			width: 100%;
+			scroll-snap-type: x mandatory;
+		}
+
+		.timeline-item {
+			position: relative;
+			flex: 0 0 auto;
+			width: 300px;
+			margin-right: 20px;
+			padding: 20px;
+			background: #FAF0E6;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			scroll-snap-align: start;
+		}
+
+		.timeline-item::before {
+			content: attr(data-year);
+			position: absolute;
+			top: -30px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			background: #096B72;
+			color: #fff;
+			padding: 5px 10px;
+			border-radius: 4px;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		h4 {
+			margin-top: 0;
+			color: #B88E8D;
+		}
+
+
+		a {
+			color: #096B72;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+		        /* Ajout du style pour le logo */
+		.logo-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 10px;
+			/* Nouvelle largeur du conteneur */
+		}
+		
+		.logo-container1 {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 10px;
+			/* Nouvelle largeur du conteneur */
+		}
+
+		.logo-container img {
+			/* Nouvelle taille des logos */
+			width: 80px; /* Ajustez la taille selon vos besoins */
+			height: auto; /* Garantit que la hauteur est ajustée proportionnellement */
+		}		
+		
+		.logo-container1 img {
+			/* Nouvelle taille des logos */
+			width: 200px; /* Ajustez la taille selon vos besoins */
+			height: auto; /* Garantit que la hauteur est ajustée proportionnellement */
+		}
+        .cursor {
+            display: inline-block;
+            width: .05em;
+            background: #096B72; /* Couleur de la barre de clignotement */
+            animation: blink 1s step-end infinite;
+        }
+
+        /* Animation pour la barre de clignotement */
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+    </style>
+
+  
+</head>
+<body>
+    <!-- Bouton pour afficher/masquer la barre verticale -->
+    <button class="menu-toggle-btn">Menu</button>
+
+    <!-- Barre verticale -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="#about">À propos</a></li>
+			<li><a href="#form">Formation</a></li>
+            <li><a href="#projects">Projets</a>
+                <ul class="sub-menu">
+                    <li><a href="#project1">Projet 1</a></li>
+                    <li><a href="#project2">Projet 2</a></li>
+					<li><a href="#project3">Projet 3</a></li>
+					<li><a href="#project4">Projet 4</a></li>
+					<li><a href="#project5">Projet 5</a></li>
+                    <!-- Ajoutez d'autres sous-parties ici si nécessaire -->
+                </ul>
+            </li>
+            <li><a href="#skill">Compétences</a></li>
+            <li><a href="#contact">Contact</a>
+                <ul class="sub-menu">
+                    <li><a href="mailto:nour.djeriou@gmail.com">Email</a></li>
+                    <li><a href="tel:+33767014257">Téléphone</a></li>
+                    <li><a href="https://www.linkedin.com/in/nourelhouda-djeriou/" target="_blank">LinkedIn</a></li>
+                    <li><a href="D:/BUT 2 EMS/S2/Portfolio1/CV_DJERIOU.pdf" target="_blank">CV</a></li>
+                </ul>
+            </li>
+            <!-- Ajoutez d'autres liens de menu ici -->
+        </ul>
+    </div>
+	
+	<!-- Flèche de retour en haut -->
+    <button class="btn btn-secondary back-to-top" onclick="scrollToTop()">↑</button>
+
+
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/design.jpg" alt="Logo" height="30"> <!-- Remplacez "votre-logo.png" par le chemin de votre logo -->
+                <!-- Titre animé -->
+                <span id="portfolio-title"><span id="name"></span><span class="cursor"></span></span>
+            </a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" id="menu-toggle" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#about" style="color: #6F263D; font-size: 1.07rem;" >À propos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#form" style="color: #6F263D; font-size: 1.07rem;">Formation</a>
+					</li>			
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #6F263D; font-size: 1.07rem;">
+							Projets
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#project1">Projet 1</a>
+							<a class="dropdown-item" href="#project2">Projet 2</a>
+							<a class="dropdown-item" href="#project3">Projet 3</a>
+							<a class="dropdown-item" href="#project4">Projet 4</a>
+							<a class="dropdown-item" href="#project5">Projet 5</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#skill" style="color: #6F263D;font-size: 1.07rem;">Compétences</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="contactDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #6F263D;font-size: 1.07rem;">
+							Coordonnées
+						</a>
+						<div class="dropdown-menu" aria-labelledby="contactDropdown">
+							<a class="dropdown-item" href="#contact">Résumé</a>
+							<a class="dropdown-item" href="mailto:nour.djeriou@gmail.com">Email</a>
+							<a class="dropdown-item" href="tel:+33767014257">Téléphone</a>
+							<a class="dropdown-item" href="https://www.linkedin.com/in/nourelhouda-djeriou/" target="_blank">LinkedIn</a>
+							<a class="dropdown-item" href="D:/BUT 2 EMS/S2/Portfolio1/CV_DJERIOU.pdf" target="_blank">CV</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+    </nav>
+
+	
+    <!-- Section À propos de moi -->
+    <section id="about" class="container mt-5 " >
+        <div class="row">
+            <div class="col-md-4">
+                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/acc1.jpg" class="img-fluid" style="max-width:95%; height: auto;" alt="Nourelhouda Djeriou">
+            </div>
+            <div class="col-md-6">
+			    <h2 class="section-title">À propos de moi</h2>
+                <p><strong> Hello ! Moi c'est Nourelhouda Djeriou, une étudiante de 19 ans en BUT Science des Données.</strong></p>
+            <p>Bienvenue dans mon portfolio personnalisé. Vous y découvrirez ma formation, mes compétences, mes projets et mes contacts. Si vous êtes intéressé d'en savoir plus sur moi, vous êtes au bon endroit !</p>
+				
+			</div>
+        </div>
+    </section>
+	
+	
+
+
+	<!-- Section Formation -->
+	<section id="form" class="container mt-5 mt-5 mb-5" >
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h2>Formation</h2>
+			</div>
+		</div>
+		<div class="uk-container uk-padding uk-container-small">
+			<div class="uk-timeline">
+				<div class="uk-timeline-item mb-4">
+					<div class="uk-timeline-icon">
+                        <div class="logo-container1">
+                            <!-- Logo 2 -->
+                            <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/iut.png" alt="Logo 2" class="logo">
+                        </div>
+						<span class="uk-badge"><span uk-icon="check"></span></span>
+					</div>
+					<div class="uk-timeline-content">
+						<div class="uk-card uk-card-default uk-margin-medium-bottom">
+							<div class="uk-card-header text-center">
+								<h5 class="uk-card-title"><time data-year="2022 - 2025">2022 - 2025</time></h3>
+								<h4>BUT Science des données à l'IUT de Paris Rives de Seine</h4>
+							</div>
+							<div class="uk-card-body">
+								<p><a href="https://iutparis-seine.u-paris.fr/metiers-de-la-data/bachelor-universitaire-de-technologie-stid/">Le BUT Science des Données</a> forme des spécialistes capables d’aider à la prise de décision par des activités de gestion des données (data management), de programmation et d’analyse statistique, et de restitution. Les élèves apprennent à collecter des données, à s’assurer de leur qualité, à les stocker dans des bases de données structurées en vue de les analyser et de les exploiter, en utilisant notamment des analyses statistiques, pour produire des outils décisionnels.</p>
+								<p>  Ce qui me plaît dans l'analyse des données est que cela permet d'apporter une aide à la décision permettant de rendre des décisions importantes dans les divers besoins quotidiens.</p>
+								<p>C'est pourquoi, après avoir obtenu mon baccalauréat général, j'ai décidé de poursuivre mes études supérieures en BUT Science des Données à l’IUT de Paris Rives de Seine. 
+					Très intéressée par la data et la business intelligence, j'acquiers avec ma formation des compétences en statistique et en informatique décisionnelle dans la manipulation de données. 
+
+				Pendant mes études, je compte continuer en alternance afin de développer mes acquis et mon expérience, dans le parcours EMS : Exploration et Modélisation Statistique. </p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="uk-timeline-item ">
+					<div class="uk-timeline-icon">
+                        <div class="logo-container">
+                            <!-- Logo 2 -->
+                            <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/ca.png" alt="Logo 2" class="logo">
+                        </div>
+						<span class="uk-badge"><span uk-icon="check"></span></span>
+					</div>
+					<div class="uk-timeline-content">
+						<div class="uk-card uk-card-default uk-margin-medium-bottom">
+							<div class="uk-card-header text-center">
+								<h5 class="uk-card-title"><time data-year="2019 - 2022">2019 - 2022</time></h3>
+								<h4>Baccalauréat général Lycée de Cachan</h4>
+							</div>
+							<div class="uk-card-body">
+															<p>L'application des mathématiques appliqués aux contextes économiques et sociales m'intéresse. 
+
+								C'est pourquoi, pour mon baccalauréat, j'ai choisis de suivre les spécialités Mathématiques et Sciences économiques et sociales.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+    <!-- Section Projets -->
+    <section id="projects" class="container mt-5">
+        <h2 class="section-title text-center">Mes Projets</h2>
+        <div class="row">
+            <!-- Project 1 -->
+            <div class="col-md-6 project-card mb-6" id="project1">
+                <div class="card">
+                    <div id="carouselProject1" class="carousel slide project-carousel" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselProject1" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselProject1" data-slide-to="1"></li>
+                            <li data-target="#carouselProject1" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/lv1.jpg" class="d-block w-100" alt="Projet 1 - Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/lv3.jpg" class="d-block w-100" alt="Projet 1 - Image 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/lv2.jpg" class="d-block w-100" alt="Projet 1 - Image 2">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselProject1" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselProject1" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #6F263D;">Projet 1 : Médiation culturelle au thème de l'IA au Musée du Louvre</h5>
+                        <p>Logiciel utilisé : <a href="https://www.canva.com/fr_fr/help/editing-and-designing/">Canva</a></p>
+ 						<div class="accordion" id="accordionProject1">
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingProject1One">
+									<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep1" aria-expanded="true" aria-controls="collapsep1">
+										Un projet universitaire permettant une ouverture culturelle :
+									</button>
+								</h2>
+								<div id="collapsep1" class="accordion-collapse collapse show" aria-labelledby="headingProject1One" data-bs-parent="#accordionProject1">
+									<div class="accordion-body">
+										<p><strong>À Paris, lors de la nocturne du 24 novembre 2023, une médiation sur le thème de l’intelligence artificielle a eu lieu au Musée du Louvre. </strong> Le sujet de ma médiation était le prompt art, un système d’apprentissage qui consiste à donner un texte en entrée pour que le système renvoie une image en sortie. Le prompt art peut être utilisé pour de l’art (en reproduisant des peintures par exemple) et pour tout thème que l’on souhaite aborder. Lors de la présentation, j’ai pu présenter avec une camarade différents exemples de prompt art sur Canva et différents logiciels (Midjourney, etc), afin de bien illustrer nos propos. Cette médiation culturelle a réuni plusieurs étudiants issus de plusieurs formations en Ile-de-France, afin de créer un moment de partage de connaissances et des créations de liens. Chaque visiteur de tout âge confondu et chaque étudiant étaient libre d’échanger et de découvrir les différents points de vue de chacun. Ce projet universitaire a permis une ouverture culturelle aux étudiants et aux visiteurs et un enrichissement en termes de communication et d’acquisition de connaissances sur les différentes notions de l’IA, tout au long de la nocturne.</p>
+									</div>
+								</div>
+							</div>
+							
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingProject1Two">
+									<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep11" aria-expanded="true" aria-controls="collapsep11">
+										La préparation de la nocturne :
+									</button>
+								</h2>
+								<div id="collapsep11" class="accordion-collapse collapse show" aria-labelledby="headingProject1Two" data-bs-parent="#accordionProject1">
+									<div class="accordion-body">
+<p><strong>L’objectif de cette nocturne était de promouvoir notre formation BUT ScIence des Données de l’IUT Paris Rives des Seine, en présentant le domaine de la data et de l’IA.</strong> Cela a permis de faire connaître notre formation sur une grande échelle auprès des visiteurs. Pour cela, nous devons nous préparer afin de maîtriser la médiation et d’être prêt pour la soirée. Nous avons pu faire plusieurs sorties au Louvre pour s’approprier le lieu et bien connaître notre salle de médiation afin de pouvoir faire des répétitions à l’avenir. Une formatrice pour les médiations nous a fourni des conseils précieux afin de réussir notre nocturne. En effet, il est important de connaître et maîtriser les notions d’une bonne communication, d’une bonne posture et de savoir être. Cela est nécessaire afin de véhiculer une meilleure image et d’attirer l’attention des visiteurs lors de la nocturne, afin qu’ils puissent en apprendre davantage par l’intermédiaire de notre discours. Notre professeur nous a présenté les enjeux de cette nocturne et nous a accompagné dans la réalisation de notre discours et des différents supports visuel. Nous avons pu faire des répétitions en classe, afin de parfaire notre présentation à travers les conseils de notre professeur et de nos camarades en termes de communication et de marges d’améliorations.</p>
+									</div>
+								</div>
+							</div>
+							
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingProject1Three">
+									<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep111" aria-expanded="true" aria-controls="collapsep111">
+										Que retenir de cette médiation ?
+									</button>
+								</h2>
+								<div id="collapsep111" class="accordion-collapse collapse show" aria-labelledby="headingProject1Three" data-bs-parent="#accordionProject1">
+									<div class="accordion-body">
+										<p><strong>Cette médiation a été un réel défi pour nous étudiant, car c’était un véritable enjeu de nous surpasser à travers nos appréhensions et nos peurs et de pouvoir fournir une bonne communication et d’attirer l’attention auprès de différents publics. </strong> Pendant la nocturne, il a été nécessaire d’être capable de pouvoir anticiper et improviser notre présentation lors de certaines situations. On peut prendre l’exemple des personnes étrangères qui ne comprennent pas le français, de certaines questions et incompréhensions à gérer en plein milieu de la médiation ou encore des personnes qui viennent vers la fin et qui n’ont pas écouter l’intégralité du discours. Il faut prendre en compte également le fait que notre salle était sombre et petite par rapport aux autres salles du Louvre. Il fallait donc bien capter l'attention des visiteurs en laissant de la place pour qu'ils puissent bien observer les portraits et adapter nos supports de prompt art sur des écrans afin qu'ils soient plus visible. Ces notions peuvent s’avérer difficiles dans certains contextes. Il reste à souligner que ces situations restent peu fréquentes et la majorité de la nocturne s’est bien déroulée. Pour s’améliorer dans ce contexte, il est nécessaire de préparer un texte en anglais afin de se faire comprendre par la majorité de l’auditoire et de se documenter sur le sujet de la médiation pour savoir répondre à un maximum d’incompréhension. Ce projet a été dans la globalité très enrichissant, car chacun de nous a fourni des efforts afin que la médiation soit une réussite et qu’elle puisse être instructive et bénéfique pour tous. Cette expérience va permettre à tous les étudiants d’être plus à l’aise à s’exprimer en public, savoir communiquer ses connaissances et ses points de vue en IA notamment, et à développer un bon relationnel dans leur avenir.</p>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<a href="https://www.louvre.fr/expositions-et-evenements/evenements-activites/campus-louvre-la-nocturne" class="btn btn-primary">Voir plus</a>
+						
+                    </div>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="col-md-6 project-card mb-6" id="project2">
+                <div class="card">
+                    <div id="carouselProject2" class="carousel slide project-carousel" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselProject2" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselProject2" data-slide-to="1"></li>
+                            <li data-target="#carouselProject2" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/acp6.png" class="d-block w-100" alt="Projet 2 - Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/acp7.png" class="d-block w-100" alt="Projet 2 - Image 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/acp5.png" class="d-block w-100" alt="Projet 2 - Image 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/acp4.png" class="d-block w-100" alt="Projet 2 - Image 3">
+                            </div>	
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/acp3.png" class="d-block w-100" alt="Projet 2 - Image 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/acp2.png" class="d-block w-100" alt="Projet 2 - Image 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/acp1.png" class="d-block w-100" alt="Projet 2 - Image 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/acp33.png" class="d-block w-100" alt="Projet 2 - Image 3">
+                            </div>	
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselProject2" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselProject2" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #6F263D;">Projet 2 : Etude des profils de joueurs de football issus de clubs à l'international</h5>
+                        <p>Logiciel utilisé : <a href="https://lms.fun-mooc.fr/c4x/UPSUD/42001S02/asset/RMarkdown.html">Rmarkdown</a></p>
+     					<div class="accordion" id="accordionProject2">
+						  <div class="accordion-item">
+							<h2 class="accordion-header">
+							  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep2" aria-expanded="true" aria-controls="collapsep2">
+								Les démarches de l'analyse des performances des joueurs.
+							  </button>
+							</h2>
+							<div id="collapsep2" class="accordion-collapse collapse show" aria-labelledby="headingProject2One" data-bs-parent="#accordionProject2">
+							  <div class="accordion-body">
+								<p><strong> Une étude a été réalisée pour analyser les performances des joueurs de football durant le mois de mai au semestre 4, à l’IUT de Paris Rives de Seine. </strong>J’ai effectué une analyse descriptive et une classification sur 343 joueurs de football selon 35 variables. La base de données comportait deux variables qualitatives (l’équipe et le poste des joueurs), et 33 variables quantitatives. Concernant les variables quantitatives, pour l’analyse descriptive, je me suis intéressée précisément à : l’âge, le contrôle de la balle, les buts marqués, les touches de balles, la distance moyenne de tir. Concernant l’analyse multivariée je me suis intéressée aux variables les plus représentatives : Shots (Tirs), Sot (Tirs cadrés), PasTotCmp (Pourcentage de passes), PasMedCmp (Pourcentage de passes entre 5 et 15 mètres), PasAtt (Passes décisives), Touches et Rec (Passes correctement reçues).</p>
+								<p><strong>L’objectif était de visualiser les différents profils des joueurs de football issus de clubs à l’international.</strong> Pendant une semaine, j’ai élaboré un rapport Rmarkdown présentant une analyse univariée, bivariée et multivariée des joueurs. Pour ce faire, j’ai utilisé R afin de nettoyer la base de données et de poursuivre l’analyse avec des consignes particulières données par notre professeur en avance. J’ai notamment vérifié s’il y avait des valeurs manquantes ou aberrantes à supprimer afin que l’analyse soit pertinente. Par exemple, la présence d’individus en doublon ou qui n’avaient pas beaucoup joué de match.</p> <p>Concernant l’analyse univariée, après avoir mis les variables qualitatives en facteur, j’ai réalisé des graphiques en camembert pour les représenter. Concernant les variables quantitatives j’ai créé des boîtes à moustache et des histogrammes.</p> <p>Pour l’analyse bivariée, j’ai utilisé des indicateurs tels que le coefficient de corrélation pour les variables quantitatives. Pour les variables qualitatives j’ai pu faire le test chi-deux d’indépendance et représenter un graphique en barres empilées. Concernant le croisement des variables quantitatives et qualitatives j’ai utilisé des boîtes à moustaches.</p> <p> Dans la partie de l’analyse multivariée, j’ai effectué l’Analyse en Composantes Principales (ACP) et la classification mixte. J’ai choisi des axes factoriels qui résument le plus les informations des variables en s’appuyant sur les valeurs des variances et valeurs propres. Par la suite, j’ai pu interpréter les individus selon les variables qui contribuent le plus aux axes factoriels. Pour la classification, j’ai choisi le nombre de clusters selon l’indicateur du R² et un dendrogramme. Ces clusters ont été ensuite interprétés sur les axes de l’ACP.</p>
+							  </div>
+							</div>
+						  </div>
+						 
+						 <div class="accordion-item">
+							<h2 class="accordion-header">
+							  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep22" aria-expanded="true" aria-controls="collapsep22">
+								Une observation des profils de joueurs différents selon les postes.
+							  </button>
+							</h2>
+							<div id="collapsep22" class="accordion-collapse collapse show" aria-labelledby="headingProject2Two" data-bs-parent="#accordionProject2">
+							  <div class="accordion-body">
+								<p><strong>Les joueurs ont des performances différentes selon leur poste.</strong> Pour l’analyse descriptive, voici quelques exemples des résultats obtenus : la moyenne d’âge des joueurs est de 26.7 ans, le joueur le plus âgé a 38 ans et le plus jeune a 16 ans. Le poste qui possède les joueurs les plus âgés est le gardien de but.  L’équipe qui a le plus de joueurs est Chelsea avec 29 joueurs. On peut observer également que le joueur qui a le plus de buts (Erling Haaland), a marqué 25 fois.</p> <p> Pour l’ACP, dans le premier axe, les variables Tirs et Tirs cadrés sont corrélées positivement, de même que le pourcentage de passes et le pourcentage de passes entre 5 et 15 mètres. Les tirs et les tirs cadrés sont corrélés négativement avec le pourcentage de passes et le pourcentage de passes entre 5 et 15 mètres. La variable passes décisives est faiblement corrélée avec pourcentage de passe. Dans le deuxième axe, les variables passes décisives, passes réceptionnées et touches ont une forte corrélation positive. Passes réceptionnées et Touches n’ont pas de corrélation avec les autres variables.</p> <p> En interprétant les 5 clusters choisis de l’analyse multivariée : Le cluster 2, se situant en vert en bas à droite des axes, correspond aux gardiens de but qui ne font pas de tirs ou de tirs cadrés, ni de passes décisives, de touches ou de passes réceptionnées. Leur pourcentage de passes est élevé et leurs passes sont moyennes allant de 5 à 15 mètres (un exemple dans ce cluster : Alexandre Meyer).</p> <p> Le cluster 1, se situant en rouge en bas à gauche des axes, correspond aux joueurs qui font beaucoup de tirs ou de tirs cadrés mais qui ne font pas beaucoup de passes ou de passes moyennes, ni de touches, de passes décisives ou de passes réceptionnées. (Exemple : Alexander Isak).</p> <p> Le cluster 3, se situant en vert fluo en haut à gauche des axes, correspond aux joueurs très performants qui sont majoritairement attaquant : ils font beaucoup de tirs ou de tirs cadrés, touches, passes décisives et passes réceptionnées. Ils font moins de passes ou de passes moyennes. (Exemple : Kevin de Bruyne, Lionel Messi, Neymar).</p> <p> Le cluster 4, se situant en bleu en haut et milieu droit des axes, correspond aux joueurs qui font beaucoup de passes ou de passes moyennes, et moins de tirs ou de tirs cadrés. Ils peuvent également faire des touches, passes décisives et passes réceptionnées. (Exemple : Marco Verrati).</p> <p> Le cluster 5 est similaire au cluster 1 et 4. Les individus ne sont pas très homogènes. Les joueurs ont des valeurs moyennes et n’ont pas de valeurs vraiment élevées. Ces individus ne sont pas très interprétables car ils sont proches du centre du cercle. (Exemple : Joao Cancelo). L’ACP et le clustering permettent de catégoriser des groupes en diminuant le nombre de variables tout en gardant le maximum d’informations.</p>							  </div>
+							</div>
+						  </div>			  
+						  
+						  <div class="accordion-item">
+							<h2 class="accordion-header">
+							  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep23" aria-expanded="true" aria-controls="collapsep23">
+								Une étude enrichissante qui a permis de consolider mes compétences.
+							  </button>
+							</h2>
+							<div id="collapsep23" class="accordion-collapse collapse show" aria-labelledby="headingProject2Three" data-bs-parent="#accordionProject2">
+							  <div class="accordion-body">
+								<p><strong>Ce projet m’a permis de bien savoir choisir les graphiques pertinents en synthétisant le flux d’informations nécessaires.</strong> J'ai appris à analyser les profils et les tendances correspondant aux caractéristiques des groupes d’individus observés selon les différentes variables. Dans l’ensemble, j’ai effectué une bonne analyse des joueurs, les démarches à entreprendre ont été bien comprises. Comme axe d’amélioration, il aurait été préférable de détailler plus précisément les axes de l’ACP selon les orientations du cercle en précisant les rôles des variables qualitatives, comme les profils des joueurs par poste par exemple. J'aurais également pu détailler les moyennes conditionnelles selon les clusters dans le rapport.</p> <p>Les compétences développées dans le cadre de ce projet sont le traitement des données à des fins décisionnelles, l’analyse statistique des données, la valorisation d’une production dans un contexte professionnel et la modélisation statistique des données. Ces compétences m’ont permis de développer mon savoir dans l’organisation des données en intervenant dans la modification et la structuration. Cela m’a permis également de comprendre l’intérêt des analyses multivariées pour synthétiser et résumer l’information portée par plusieurs variables en mettant en évidence les grandes tendances et les informations principales. Concernant la modélisation statistique, ce projet m’a permis de réaliser l'importance de la mise en œuvre d'une procédure de test statistique pour valider ou non une hypothèse en choisissant le modèle adapté à la situation. Enfin, ce projet m'a permis de savoir défendre mes choix d'analyses tout en s’exprimant correctement, aussi bien en français que dans une langue étrangère, à l'oral comme à l'écrit. Ces compétences me serviront à nouveau au S5 et S6, lors de ma dernière année. Plus globalement, ce sont des compétences que je devrai solliciter tout au long de mes études en science des données et de ma vie professionnelle (lors de remises de rapport ou d’analyse à un client par exemple).</p>
+							  </div>
+							</div>
+						  </div> 
+						</div>
+					   <a href="https://veroniquetremblay.github.io/analyse_de_donnees_et_apprentissage_statistique_en_R/introduction-%C3%A0-lanalyse-de-donn%C3%A9es.html" class="btn btn-primary">Voir plus</a> 	 <a href="https://husson.github.io/MOOC_AnaDo/ACP.html" class="btn btn-primary">Voir plus</a>
+
+                    </div>
+                </div>
+            </div>
+			           <!-- Project 3 -->
+            <div class="col-md-6 project-card mb-6" id="project3">
+                <div class="card">
+                    <div id="carouselProject3" class="carousel slide project-carousel" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselProject3" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselProject3" data-slide-to="1"></li>
+                            <li data-target="#carouselProject3" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/saesid1.jpg" class="d-block w-100" alt="Projet 3 - Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/saesid2.jpg" class="d-block w-100" alt="Projet 3 - Image 2">
+                            </div>						                           
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/saesid3.jpg" class="d-block w-100" alt="Projet 3 - Image 2">
+                            </div>
+
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselProject3" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselProject3" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #6F263D;" >Projet 3 : Intégration d'une base de données et analyse des comportements des utilisateurs de la plateforme Nil</h5>
+                        <p>Logiciels utilisés : <a href="https://learn.microsoft.com/fr-fr/power-bi/">Power BI</a>, <a href="https://learn.microsoft.com/fr-fr/sql/?view=sql-server-ver16">SQL</a>, <a href="https://cran.r-project.org/doc/contrib/Goulet_introduction_programmation_R.pdf">R</a>, <a href="https://www.canva.com/fr_fr/help/editing-and-designing/">Canva</a>, <a href="https://www.microsoft.com/fr-fr/microsoft-365/free-office-online-for-the-web">Office 365</a></p>
+						<div class="accordion" id="accordionProject3">
+						  <div class="accordion-item">
+							<h2 class="accordion-header">
+							  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep3" aria-expanded="true" aria-controls="collapsep3">
+								Les étapes de l'intégration de la base de données :
+							  </button>
+							</h2>
+							<div id="collapsep3" class="accordion-collapse collapse show" aria-labelledby="headingProject3One" data-bs-parent="#accordionProject3">
+							  <div class="accordion-body">
+								<p><strong>Lors de mon S3 à l’IUT de Paris Rives de Seine, j’ai réalisé un rapport sur l’étude des comportements des clients de la plateforme Nil, un site d’e-commerce de livres.</strong> En groupe de trois personnes, durant le mois de février, nous avons participé à l’intégration d’une base de données afin de l’analyser par la suite.</p>
+
+<p><strong>L’objectif était de créer une base de données pour répondre à la demande de la société selon ses besoins spécifiques.</strong> Avec les informations fournies, nous devions analyser le comportement des clients de leur plateforme, notamment dans leurs achats de livres, le nombre de clics ou de commandes et d’autres caractéristiques de leur intérêt.
+
+Lors de la création de la base de données, la structuration de la base devait être établie selon la demande du client. Pour confirmer la bonne structuration de la base, il a été nécessaire de faire valider les étapes et les relations établies entre les tables par le client avant de poursuivre l’analyse.
+
+En effet, pour réaliser une bonne analyse, il faut recueillir des informations pertinentes, notamment les commandes et les informations clients. J'ai pu recueillir les informations nécessaires en communiquant avec la société afin d’identifier ses besoins spécifiques.
+
+Lors de l’étape de la structuration, j'ai établie établi des tables de faits et de dimensions avec des attributs associés. J'ai également créé des clés primaires et étrangères afin d’identifier de façon unique les clients et de créer des relations entre les tables.
+
+Nous devions mesurer la bonne cardinalité afin de bien comprendre les enjeux des différentes tables. Par exemple, un client peut commander un ou plusieurs livres.
+</p>
+							  </div>
+							</div>
+						  </div>
+						 
+						 <div class="accordion-item">
+							<h2 class="accordion-header">
+							  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep33" aria-expanded="true" aria-controls="collapsep33">
+								La structuration de la base de données :
+							  </button>
+							</h2>
+							<div id="collapsep33" class="accordion-collapse collapse show" aria-labelledby="headingProject3Two" data-bs-parent="#accordionProject3">
+							  <div class="accordion-body">
+								<p><strong>La base de données est composée de neuf tables : livre, client, catégorie, page, maison d’édition, société, commande, détail commande et consulté.</strong>
+
+Lors de la création des tables, on peut citer la table "Consulté" qui enregistre les pages consultées par les clients, fournissant des informations essentielles pour comprendre les préférences et le comportement de navigation des utilisateurs.
+
+Un exemple concernant les relations : la table "Commande" est liée à la table "Client" par le biais de la clé étrangère "id_client", assurant que chaque commande est associée à un client existant. Les attributs de chaque table ont été choisis pour répondre aux besoins spécifiques de la société Nil en matière d'analyse du comportement des utilisateurs. </p>
+
+
+<p>Dans notre schéma relationnel, certaines tables peuvent s'avérer douteuses en raison de la présence possible de doublons. La table "Commande" peut s'avérer être douteuse. En effet, un client peut valider plusieurs fois son panier en cas de bug du site internet ou par manque d’attention. Nous avons également une table dégénérée qui ne comporte qu’un seul attribut. Dans la base, la table "id_facture" contient uniquement la facture.
+
+Pour les tables de dimensions, nous avons choisi des gestions de changements de type 2, c’est-à-dire un ajout de ligne lors de modifications, car nous souhaitons garder l’historique des changements.
+
+Les mesures nous permettent d’analyser différentes thématiques, chaque mesure ayant un niveau d’additivité selon les dimensions temps, produit et géographique. Certaines mesures peuvent perdre du sens si elles sont additionnées selon certaines dimensions. Par exemple, additionner la moyenne des commandes par ville.</p>
+
+<p>Le schéma est conçu pour être extensible, permettant une adaptation facile aux évolutions futures.
+
+De nouvelles catégories de livres, de maisons d'édition ou d'autres entités peuvent être ajoutées sans altérer la structure fondamentale de la base de données. La conception du schéma vise à simplifier la rédaction de requêtes pour les utilisateurs et les développeurs. Les noms des tables et des attributs sont intuitifs, facilitant la compréhension et la manipulation des données.
+
+En résumé, ce schéma relationnel offre une base solide pour l'analyse du comportement des utilisateurs, en garantissant la qualité des données, la facilité de maintenance et la capacité à évoluer avec les besoins futurs de la société Nil.
+</p>
+							  </div>
+							</div>
+						  </div>			  
+						  
+						  <div class="accordion-item">
+							<h2 class="accordion-header">
+							  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep333" aria-expanded="true" aria-controls="collapsep333">
+								L'analyse des comportements des clients pour la rentabilité de la plateforme Nil et les points forts de l'étude.
+							  </button>
+							</h2>
+							<div id="collapsep333" class="accordion-collapse collapse show" aria-labelledby="headingProject3Three" data-bs-parent="#accordionProject3">
+							  <div class="accordion-body">
+								<p><strong>Après avoir terminé le schéma relationnel, nous avons intégré les tables de la base de données sur R au format SQLite afin de faire des requêtes pour analyser le comportement des clients, tel que le nombre de livres commandés, le chiffre d’affaires établi ou encore le nombre de consultations.</strong> La base de données a été remplie avec des attributs, en créant des observations sur Excel pour pouvoir les charger sur Power BI et sur les tables créées avec SQLite pour les requêtes. 
+
+Nous avons ensuite créé des graphiques sur Power BI visualisant les problématiques émises par les requêtes après avoir chargé les données d’Excel.
+
+Enfin, le rapport a été rédigé sur Canva. Nous avons expliqué nos démarches dans la construction de notre base de données et analysé les résultats obtenus en nous appuyant sur la maquette de graphiques de Power BI.
+
+À la suite de notre analyse, nous avons obtenu les résultats suivants. : les utilisateurs ont tendance à acheter en moyenne deux livres par commande. La catégorie de romance semble être la plus populaire, suivie de près par la fiction. Le français est majoritairement la langue la plus vendue, suivi de l'anglais et de l'espagnol.</p> 
+
+<p> <strong>Ce projet m’a permis de bien intégrer une base de données en prenant en compte les contraintes afin de créer des données optimales pour une analyse répondant aux besoins.</strong> Dans l’ensemble, j’ai effectué une bonne analyse des comportements des clients. Les démarches à entreprendre ont été bien comprises en respectant les demandes du client. Comme axe d’amélioration, je peux citer une meilleure compréhension des requêtes à établir sur SQL, en revoyant notamment les syntaxes des requêtes pour analyser correctement les relations entre les tables.</p>
+
+<p>Les compétences développées dans le cadre de ce projet sont le traitement des données à des fins décisionnelles, l’analyse statistique des données et la valorisation d’une production dans un contexte professionnel. Ces compétences m’ont permis de développer mon savoir dans l’organisation des données ainsi que dans l’identification et la résolution des problèmes d’intégration de sources complémentaires et hétérogènes, en intervenant dans la modification et la structuration, et en s’inscrivant dans une démarche de documentation des réalisations adaptée au public visé. L’étude m’a également permis de comprendre l’intérêt de confronter une hypothèse avec la réalité pour prendre une décision, en identifiant et en mettant en œuvre les techniques adaptées aux attentes du client ou de l’instance décisionnaire.
+
+Enfin, ce projet m'a permis de défendre mes choix d'analyses et de saisir la nécessité de choisir des indicateurs pertinents pour communiquer les résultats, tout en s’exprimant correctement, aussi bien en français que dans une langue étrangère, à l'oral comme à l'écrit.
+
+ Ces compétences me serviront à nouveau au S5 et S6, lors de ma dernière année. Plus globalement, ce sont des compétences que je devrai solliciter tout au long de mes études en science des données et de ma vie professionnelle (par exemple, lors de la remise d’un rapport ou d’une analyse à un client).
+</p>
+							  </div>
+							</div>
+						  </div>  
+						</div>
+						<a href="https://www.lisez.com/nil/livres/3" class="btn btn-primary">Voir plus</a>
+                    </div>
+                </div>
+            </div>
+			
+			           <!-- Project 4 -->
+            <div class="col-md-6 project-card mb-6" id="project4">
+                <div class="card">
+                    <div id="carouselProject4" class="carousel slide project-carousel" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselProject4" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselProject4" data-slide-to="1"></li>
+                            <li data-target="#carouselProject4" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/st1.png" class="d-block w-100" alt="Projet 4 - Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/st2.png" class="d-block w-100" alt="Projet 4 - Image 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/st3.png" class="d-block w-100" alt="Projet 4 - Image 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/st4.png" class="d-block w-100" alt="Projet 4 - Image 3">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselProject4" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselProject4" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #6F263D;">Projet 4 : Etude de la production d'electricité par combustion de charbon de 2021 à 2022</h5>
+                        <p>Logiciel utilisé : <a href="https://lms.fun-mooc.fr/c4x/UPSUD/42001S02/asset/RMarkdown.html">Rmarkdown</a></p>
+						<div class="accordion" id="accordionProject4">
+						  <div class="accordion-item">
+							<h2 class="accordion-header">
+							  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep4" aria-expanded="true" aria-controls="collapsep4">
+								Les démarches de l'analyse.
+							  </button>
+							</h2>
+							<div id="collapsep4" class="accordion-collapse collapse show" aria-labelledby="headingProject4One" data-bs-parent="#accordionProject4">
+							  <div class="accordion-body">
+								<p><strong>Lors de mon S3 en janvier à l’IUT de Paris Rives de Seine, j’ai étudié avec un camarade l’évolution de la production d’électricité par combustion de charbon en MGW/H de 2001 à 2022.</strong>  Les données mensuelles de la série temporelle sont disponibles sur le site de l’EIA, l’agence américaine de statistique des différentes énergies.</p> <p> <strong> L’objectif était de rédiger un rapport décrivant l’évolution de la production d’électricité par combustion de charbon avec les données fournies par l’EIA.</strong> L’analyse a été réalisée sur RMarkdown en utilisant l’implémentation de méthodes de programmation spécifiques aux données temporelles. J’ai pu comparer trois méthodes de prévision avec les données initiales après l’analyse des séries temporelles. Afin d’interpréter l’évolution, nous avons observé les résidus, les coefficients saisonniers ainsi que les différentes tendances constatées.</p>
+							  </div>
+							</div>
+						  </div>
+						 
+						 <div class="accordion-item">
+							<h2 class="accordion-header">
+							  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep44" aria-expanded="true" aria-controls="collapsep44">
+								L'évolution de la production d'électricité par combustion de charbon de 2001 à 2022 :
+							  </button>
+							</h2>
+							<div id="collapsep44" class="accordion-collapse collapse show" aria-labelledby="headingProject4Two" data-bs-parent="#accordionProject4">
+							  <div class="accordion-body">
+								<p><strong>Avec l'analyse des données temporelles, j'ai établi des graphiques sur le rapport afin d’illustrer notre étude.</strong> 
+
+J’ai représenté la tendance de la série dans un graphique par deux courbes. La courbe de régression, en rouge, et la courbe des moyennes mobiles centrées (MMC12), en bleu. On peut constater que la tendance de 2001 à 2022 est décroissante, ce qui peut s'expliquer par la hausse des prix du charbon par rapport aux autres gaz naturels durant cette période. On observe également une phase de stagnation de 2001 à 2010 (environ 150 000 MGW/H) où la courbe est pratiquement droite. Puis, de 2010 à 2022, la tendance décroît, passant de 150 000 à 50000 MGWH/H.
+La courbe de régression est établie par le calcul de la moyenne annuelle pour les 22 années d’observation, et le calcul de MMC12, expliqué précédemment, a été fait par la fonction filter de R.
+En résumé, la courbe de régression présente une tendance décroissante qui suit de près la tendance générale des données. Tant la courbe de régression que la courbe des moyennes mobiles centrées d’ordre 12 mettent en évidence une tendance similaire, puisqu’elles concordent toutes deux et montrent une diminution au fil du temps.</p>
+<p>Concernant les résidus, nous avons observé une forte variation des résidus à partir de 2010. Au fil du temps, les résidus deviennent de moins en moins proches de 0. Plusieurs facteurs peuvent en être à l’origine. Il est possible, par exemple, qu’à partir de ce moment, le modèle explique de moins en moins bien ces observations. Il est également possible qu’il y ait un changement saisonnier, des données aberrantes, ou encore des facteurs externes qui influent sur la série temporelle, comme mentionné précédemment.
+Pour la saisonnalité, nous avons observé six périodes qui nous serviront dans l’optimisation de nos prévisions futures. Elles nous permettront d’ajuster plus précisément nos modèles pour tenir compte des tendances saisonnières spécifiques et anticiper les variations périodiques avec une plus grande précision.</p>
+
+<p>Enfin, j’ai pu comparer trois méthodes de prévisions étudiées pour l’année 2022 par rapport aux vraies valeurs de la série. On constate que la meilleure méthode de prévision est la première (tendance + saison). En effet, les prévisions représentées par la courbe violette sont celles qui se rapprochent le plus des vraies valeurs de la courbe turquoise. La deuxième prévision qui se rapproche le plus des vraies valeurs est la méthode ARMA, représentée par la courbe bleue. La méthode Holt-Winters, représentée par la courbe verte, a fourni la plus mauvaise des prévisions de l’année 2022 par rapport aux vraies valeurs et est la plus éloignée de la courbe turquoise.
+
+Les erreurs quadratiques moyennes calculées le démontrent. En effet, pour la meilleure prévision (tendance + saison), l’EQM est le plus bas (58 706 702). Pour la deuxième prévision (ARMA), assez correcte, l’EQM est de 56 122 913, et pour la plus mauvaise prévision (Holt-Winters), l’EQM est le plus élevé (1 723 479 680).
+</p>
+							  </div>
+							</div>
+						  </div>			  
+						  
+						  <div class="accordion-item">
+							<h2 class="accordion-header">
+							  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep444" aria-expanded="true" aria-controls="collapsep444">
+								Ce que m'as apporté cette expérience :
+							  </button>
+							</h2>
+							<div id="collapsep444" class="accordion-collapse collapse show" aria-labelledby="headingProject4Three" data-bs-parent="#accordionProject4">
+							  <div class="accordion-body">
+								<P><strong>Ce projet m’a permis de bien comprendre les enjeux des séries temporelles et des prévisions, en comprenant notamment l’influence des facteurs socio-démographiques et saisonniers sur l’étude. </strong> Dans l’ensemble, j’ai effectué une bonne analyse de l’évolution de la production d’électricité. Les démarches à entreprendre ont été bien comprises. Comme axe d’amélioration, on peut citer une synthèse plus prononcée concernant les graphiques et les résultats obtenus, afin de simplifier la compréhension de l’analyse et son interprétation par un maximum de public.</p>
+
+<p>Les compétences développées dans le cadre de ce projet sont l’analyse statistique des données et la valorisation d’une production dans un contexte professionnel. Ces compétences m’ont permis de développer mon savoir dans la saisie de la spécificité de l’analyse des données temporelles et dans l’appréciation des limites de validité et des conditions d’application d’une analyse, en mettant en évidence les grandes tendances et les informations principales, et en tenant compte du contexte de l’étude (économique, socio-démographique, commercial, clinique...).
+Enfin, ce projet m'a permis de défendre mes choix d'analyses et de saisir la nécessité de choisir des indicateurs pertinents pour communiquer les résultats, tout en s’exprimant correctement, aussi bien en français que dans une langue étrangère, à l'oral comme à l'écrit.
+
+Compétences fait
+Ces compétences me serviront à nouveau au S5 et S6, lors de ma dernière année. Plus globalement, ce sont des compétences que je devrai solliciter tout au long de mes études en science des données et de ma vie professionnelle (lors de la remise de rapports ou d’analyses à un client, par exemple).
+</p>
+							  </div>
+							</div>
+						  </div>
+						 </div>
+                        <a href="https://fr.wikipedia.org/wiki/Agence_d'information_sur_l'%C3%A9nergie" class="btn btn-primary">Voir plus</a>
+                    </div>
+                </div>
+            </div>
+			
+			           <!-- Project 5 -->
+            <div class="col-md-6 project-card mb-6 mx-auto" id="project5">
+                <div class="card">
+                    <div id="carouselProject5" class="carousel slide project-carousel" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselProject5" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselProject5" data-slide-to="1"></li>
+                            <li data-target="#carouselProject5" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/sakila.png" class="d-block w-100" alt="Projet 2 - Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/rep22.jpg" class="d-block w-100" alt="Projet 2 - Image 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/rep111.png" class="d-block w-100" alt="Projet 2 - Image 3">
+                            </div>
+							<div class="carousel-item">
+                                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/rep33.jpg" class="d-block w-100" alt="Projet 2 - Image 4">
+                            </div>
+						
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselProject5" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselProject5" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #6F263D;">Projet 5 : Reporting pour l'aide à la décision d'un loueur de DVD pour l'ouverture d'un nouveau magasin</h5>
+                        <p>Logiciel utilisé : <a href="https://www.microsoft.com/fr-fr/microsoft-365/free-office-online-for-the-web">Excel</a>, <a href="https://learn.microsoft.com/fr-fr/sql/?view=sql-server-ver16">SQL</a></p>
+						<div class="accordion" id="accordionProject5">
+						  <div class="accordion-item">
+							<h2 class="accordion-header">
+							  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep5" aria-expanded="true" aria-controls="collapsep5">
+								Etudier la rentabilité des locations de DVD :
+							  </button>
+							</h2>
+							<div id="collapsep5" class="accordion-collapse collapse show" aria-labelledby="headingProject5One" data-bs-parent="#accordionProject5">
+							  <div class="accordion-body">
+								<p><strong>Dans une équipe de 3 personnes, j’ai participé à l'élaboration d'un reporting pour l'aide à la décision d'un loueur de DVD afin d’optimiser l’ouverture de son nouveau magasin.</strong> Lors de mon S1 à l’IUT de Paris Rives de Seine, j’ai disposé d’un mois avec mon équipe pour finaliser ce projet.</p> <p><strong> L’objectif était de récolter des informations pertinentes permettant au commerçant de DVD d’avoir une activité rentable dans son nouveau magasin.</strong>
+Pour l’analyse des données, nous avons récolté des informations d'une base de données Sakila concernant des anciens magasins de location de DVD.</p>
+<p>J’ai pu établir des requêtes SQL à partir de la base Sakila afin de tirer une analyse de données pertinentes à l'étude. Les données des requêtes ont été extraites et traitées par la suite sur Excel en créant des tableaux croisés dynamiques, des graphiques et des indicateurs pertinents introduits dans le reporting. Le rendu attendu était un document reprenant les requêtes établies et le reporting finalisé.
+</p>
+							  </div>
+							</div>
+						  </div>
+						 
+						 <div class="accordion-item">
+							<h2 class="accordion-header">
+							  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep55" aria-expanded="true" aria-controls="collapsep55">
+								Les résultats de l'analyse :
+							  </button>
+							</h2>
+							<div id="collapsep55" class="accordion-collapse collapse show" aria-labelledby="headingProject5Two" data-bs-parent="#accordionProject5">
+							  <div class="accordion-body">
+								<p><strong>Pour analyser la rentabilité, nous avons eu trois axes principaux à prendre en compte dans les consignes.</strong> Le premier axe était la catégorie de films ; nous avons analysé, par exemple, la catégorie la plus louée ou celle qui a rapporté le montant le plus élevé. Le second axe concernait le comportement du client ; ici, nous avons cité le nombre moyen de locations par client ou encore le montant total dépensé par client. Enfin, le troisième axe portait sur les locations, en analysant le moment de la journée ou encore le pays et le continent où il y a le plus de locations.</p>
+<p>À la suite de notre analyse établie sur la base de données Sakila, nous avons pu constater que la catégorie ayant le plus de succès auprès des clients est la catégorie Sport. Afin d'être le plus rentable possible, il faudrait travailler le mardi après-midi entre 12h et 19h. Enfin, il faut avoir des prix de location autour de 4,2$, étant donné que c'est le prix moyen d'une location. En hypothèse, nous supposons qu’il serait préférable de s'installer au Canada, car c'est là où se trouve le meilleur des deux magasins en termes de locations et que les autres pays sont l'origine des clients.
+</p>
+							  </div>
+							</div>
+						  </div>			  
+						  
+						  <div class="accordion-item">
+							<h2 class="accordion-header">
+							  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsep555" aria-expanded="true" aria-controls="collapsep555">
+								Des compétences consolidées.
+							  </button>
+							</h2>
+							<div id="collapsep555" class="accordion-collapse collapse show" aria-labelledby="headingProject5Three" data-bs-parent="#accordionProject5">
+							  <div class="accordion-body">
+								<p><strong>Ce projet m’a permis de bien comprendre la structuration de la base de données avec les relations entre les tables afin de formuler des requêtes et des problématiques pertinentes pour répondre à la problématique du client.</strong>  Dans l’ensemble, j’ai effectué une bonne analyse des comportements des clients et les démarches à entreprendre ont été bien comprises en respectant les demandes du client. Comme axe d’amélioration, on peut citer une répartition des tâches plus équitable afin de fournir un travail de meilleure qualité et de mieux comprendre les problématiques à aborder pour les réaliser dans les requêtes.</p>
+<p>Les compétences développées dans le cadre de ce projet sont le traitement des données à des fins décisionnelles, l’analyse statistique des données et la valorisation d’une production dans un contexte professionnel. Ces compétences m’ont permis de développer mon savoir dans l’importance de maîtriser la structure des données à exploiter et l’interprétation et la prise en compte des besoins du commanditaire ou du client en intervenant à toutes les étapes du cycle de vie de la donnée (insertion, modification, extraction, suppression) et en écrivant un programme correctement structuré et documenté, respectant les bonnes pratiques. Cela m’a également permis de comprendre l’intérêt des synthèses numériques et graphiques pour décrire une variable statistique en identifiant et en mettant en œuvre les techniques adaptées aux attentes du client ou de l’instance décisionnaire selon le contexte de l’étude, et en mettant en évidence les grandes tendances et les informations principales.</p>
+<p>Enfin, ce projet m'a permis de savoir mettre en évidence des résultats clés par l’utilisation d’indicateurs pertinents en explicitant les démarches suivies tout en s’exprimant correctement, aussi bien en français que dans une langue étrangère, à l'oral comme à l'écrit.
+Ces compétences me serviront à nouveau au S5 et S6, lors de ma dernière année. Plus globalement, ce sont des compétences que je devrai solliciter tout au long de mes études en science des données et de ma vie professionnelle (lors de la remise de rapport ou d’analyse à un client par exemple).
+</p>
+							  </div>
+							</div>
+						  </div>
+						 </div>
+                        <a href="https://fxjollois.github.io/donnees/sakila/" class="btn btn-primary">Voir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+
+	
+	<!-- Section Compétences -->
+	<section id="skill" class="container mt-5 section-spacing">
+		<h2 class="section-title text-center">Compétences</h2>
+
+		<div class="row justify-content-center">
+			<div class="col-md-4">
+				<div class="text-center mb-4">
+					<div class="text-center mb-4" style="margin-top: 28px;">
+						<img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/cdata.png" alt="Votre image" class="img-fluid rounded-circle" style= "max-width: 99%;" >
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-6">
+						<h3>Compétences techniques</h3>
+						<ul>
+						    <li>Logiciels :</li>
+							<ul>
+								<li><a href="https://developer.mozilla.org/fr/docs/Web/HTML">HTML</a>, <a href="https://developer.mozilla.org/fr/docs/Web/CSS">CSS</a>, <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript">JavaScript</a></li>
+								<li><a href="https://docs.python.org/fr/3/tutorial/">Python</a>, <a href="https://learn.microsoft.com/fr-fr/sql/?view=sql-server-ver16">SQL</a>, <a href="https://cran.r-project.org/doc/contrib/Goulet_introduction_programmation_R.pdf">R</a>, <a href="https://support.sas.com/en/documentation.html">SAS</a>, <a href="https://www.microsoft.com/fr-fr/microsoft-365/free-office-online-for-the-web">Office 365</a></li>
+								<li><a href="https://learn.microsoft.com/fr-fr/power-bi/">Power BI</a>, <a href="https://www.tableau.com/fr-fr/resources/reference-materials">Tableau</a></li>
+		
+							</ul>
+							<p></p>
+							<p></p>
+							<li>Statistique et informatique décisionnelle :</li>
+							<ul>
+								<li>Analyse statistique de données</li>
+								<li>SGBD : Structuration et requêtage</li>
+								<li>Système d’information décisionnel</li>
+								<li>Modélisation statistique et prévision</li>
+								<li>Apprentissage automatique et IA</li>
+								<li>Reporting et visualisation de données</li>
+							</ul>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<h3>Langues</h3>
+						<ul>
+							<li>Français, Arabe (langues natales)</li>
+							<li>Anglais B2</li>
+						</ul>
+						<div style="margin-top: 20px;"></div> 
+						<h3>Autres</h3>
+						<ul>
+							<li>Communication : rédaction, soutenance</li>
+							<li>Gestion, Économie</li>
+							<li>Travail en groupe : conduite de projet, gestion des tâches</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Section Contact -->
+
+	
+	<section id="contact" class="container mt-5 mb-5">
+        <h2 class="mb-4 text- center">Coordonnées</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-2 contact-item">
+                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/mai.jfif" alt="Email" href="mailto:nour.djeriou@gmail.com">
+                <h5><a href="mailto:nour.djeriou@gmail.com">Email</a></h5>
+                
+            </div>
+            <div class="col-md-2 contact-item">
+                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/tel.png" alt="Téléphone">
+                <h5><a href="tel:+33767014257">Téléphone</a></h5>
+                
+            </div>
+            <div class="col-md-2 contact-item">
+                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/lin.png" alt="LinkedIn">
+                <h5><a href="https://www.linkedin.com/in/nourelhouda-djeriou/" target="_blank">LinkedIn</a></h5>
+                
+            </div>
+            <div class="col-md-2 contact-item">
+                <img src="D:/BUT 2 EMS/S2/Technologies web/Site portgolio/image/design.jpg" alt="CV">
+                <h5><a href="D:/BUT 2 EMS/S2/Portfolio1/CV_DJERIOU.pdf" target="_blank">CV</a></h5>
+                
+            </div>
+        </div>
+    </section>
+	
+	
+	
+     <!-- Footer -->
+    <footer>
+        <p id="ft">&copy; 2024 Portfolio Nourelhouda Djeriou. Tous droits réservés.</p>
+    </footer>
+
+
+    <!-- Lien vers Bootstrap JS et dépendances -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+	 <!-- Lien vers Bootstrap JS et dépendances -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+        // Fonction pour faire défiler vers le haut de la page
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Affiche ou cache le bouton de retour en haut en fonction du défilement de la page
+        window.onscroll = function() {
+            var backToTopButton = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        };
+    </script>
+	
+	<!-- Lien vers Bootstrap JS et dépendances -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+        // Fonction pour afficher/masquer la barre verticale
+        document.querySelector('.menu-toggle-btn').onclick = function() {
+            var sidebar = document.querySelector('.sidebar');
+            if (sidebar.style.display === 'block') {
+                sidebar.style.display = 'none';
+            } else {
+                sidebar.style.display = 'block';
+            }
+        };
+
+        // Fonction pour gérer les sous-menus
+        document.querySelectorAll('.sidebar-menu li a').forEach(function(link) {
+            link.onclick = function() {
+                var nextElement = this.nextElementSibling;
+                if (nextElement && nextElement.classList.contains('sub-menu')) {
+                    nextElement.style.display = nextElement.style.display === 'block' ? 'none' : 'block';
+                }
+            };
+        });
+		
+
+    </script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+    $(document).ready(function(){
+        $('.accordion-collapse').collapse();
+    });
+	</script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+	<script>
+    $(document).ready(function(){
+        // Initialisation du plugin de menu déroulant
+        $('.dropdown-toggle').dropdown();
+    });
+	</script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var navbarToggle = document.getElementById('menu-toggle');
+			var navbarNav = document.getElementById('navbarNav');
+
+			// Fonction pour basculer la visibilité de la navigation
+			function toggleNavbar() {
+				navbarNav.classList.toggle('show');
+			}
+
+			// Ajouter un écouteur d'événement au bouton de bascule
+			navbarToggle.addEventListener('click', function () {
+				toggleNavbar();
+			});
+
+			// Fermer la navigation lorsque vous cliquez en dehors de celle-ci ou sur le bouton de bascule
+			document.addEventListener('click', function (event) {
+				if (!navbarNav.contains(event.target) && !navbarToggle.contains(event.target)) {
+					navbarNav.classList.remove('show');
+				}
+			});
+
+			// Fermer la navigation lorsqu'un lien principal est cliqué
+			var navLinks = document.querySelectorAll('.navbar-nav>li>a');
+			navLinks.forEach(function (link) {
+				link.addEventListener('click', function (event) {
+					if (!this.nextElementSibling || !this.nextElementSibling.classList.contains('dropdown-menu')) {
+						navbarNav.classList.remove('show');
+					}
+				});
+			});
+
+			// Fermer la navigation lorsqu'un lien de sous-menu est cliqué
+			var dropdownLinks = document.querySelectorAll('.dropdown-item');
+			dropdownLinks.forEach(function (link) {
+				link.addEventListener('click', function () {
+					navbarNav.classList.remove('show');
+				});
+			});
+
+			// Fermer la navigation lorsque le bouton de bascule est cliqué à nouveau
+			navbarToggle.addEventListener('click', function () {
+				if (navbarNav.classList.contains('show')) {
+					navbarNav.classList.remove('show');
+				}
+			});
+		});
+	</script>
+
+
+    <script>
+        // Fonction pour simuler l'effet de frappe
+        function typeWriter() {
+            const text = "Bienvenue dans le portfolio de Nourelhouda Djeriou ";
+            let i = 0;
+            // Obtenez le texte de la balise avec l'ID "name"
+            const name = document.getElementById('name');
+            // Fonction d'itération pour ajouter chaque lettre à la balise
+            function addLetter() {
+                if (i < text.length) {
+                    name.innerHTML += text.charAt(i);
+                    i++;} else {
+                    // Réinitialisez i pour recommencer l'animation
+                    i = 0;
+                    name.innerHTML = ''; // Effacez le contenu de la balise pour recommencer
+                }
+                    setTimeout(addLetter, 110); // Délai entre chaque lettre (150ms)
+                
+            }
+            addLetter(); // Commencez l'effet de frappe
+        }
+        typeWriter(); // Appelez la fonction pour commencer l'effet de frappe
+    </script>
+
+
+	<!-- Assurez-vous d'inclure la bibliothèque jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+	
+
+
+
+
+</body>
+</html>
+
